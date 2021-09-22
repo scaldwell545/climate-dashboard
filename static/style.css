@@ -1,0 +1,174 @@
+html { 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+    -webkit-box-shadow: 0 3px 6px -6px black;
+    -moz-box-shadow: 0 3px 6px -6px black;
+    box-shadow: 0 3px 6px -6px black;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width 999*/
+}
+
+
+nav {
+    z-index: 5;
+}
+
+
+nav .navbar-nav li {
+    padding-right:20px;
+}
+
+nav .navbar-nav li a{
+    font-weight:bold;
+    color: black !important;
+    font-size: 15px;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+nav .navbar-nav li a:hover{
+    font-weight:bold;
+    color: black !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+/* Change the link color on hover */
+li a:hover {
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #a5d2a5;
+}
+
+
+a {
+    color: black;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+
+a:hover{
+    color: black;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+a p:hover{
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #d8ecd8;
+}
+
+
+.colinfo {
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px;
+    background-color: #f8f9fa;
+/*     box-shadow: 10px 10px 8px black; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* styling for choropleth map, dont touch*/
+.leaflet-container{
+/*     border-radius: 0px 20px 20px 0px; */
+    }
+
+#map,
+  body,
+  html {
+    height: 600px;
+    z-index: 1;
+  }
+  
+  .leaflet-popup-content {
+    text-align: center;
+  }
+
+/* CSS from the leaflet-choropleth documentation */
+  .legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+
+
+/* ------- Format Footer ---------*/
+
+.footer {
+    left: 0;
+    bottom: 0;
+    padding-top:5px;
+    padding-bottom:0px;
+    width: 100%;
+    background-color: #f8f9fa;
+    opacity:1;
+    color: black;
+    text-align: center;
+    height: 35px;
+/*     -webkit-box-shadow: 0px -1px 1px 0px #888888;
+    -moz-box-shadow: 0px -1px 1px 0px #888888;
+    box-shadow: 0px -1px 1px 0px #888888; */
+}
+
+
+
+
+
+/* ------- Adjust for Small Screen ---------*/
+
+@media (max-width: 1000px) {
+    
+    
+    .navbar-collapse {
+        text-align:center;
+    }
+    
+    .info {
+        text-align:center;
+    }
+    
