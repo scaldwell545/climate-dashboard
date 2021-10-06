@@ -12,18 +12,19 @@ import numpy as np
 
 app=Flask(__name__)
 
-#connection_url=f'postgresql://postgres:{password}@localhost:5432/esports_db'
-# connection_url = os.environ.get('DATABASE_URL_KL').replace('postgres', 'postgresql')
-#engine = create_engine(connection_url)
+connection_url = os.environ.get('DATABASE_URL_KL').replace('postgres', 'postgresql')
+engine = create_engine(connection_url)
 morerecords = os.path.join(os.getcwd(), "Resources", "newcountry.geojson")
-region_bar_data = os.path.join(os.getcwd(), "Resources", "temp_region_mean.csv")
-air_pollution_data = os.path.join(os.getcwd(), "Resources", "PM2.5 Global Air Pollution 2010-2017.csv")
-co2_data = os.path.join(os.getcwd(), "Resources", "co2_cleaned.csv")
-sectorco2_data = os.path.join(os.getcwd(), "Resources", "GHG-Emissions-by-sector.csv")
-pollution_data = os.path.join(os.getcwd(), "Resources", "death-rates-from-air-pollution.csv")
+
+
+# region_bar_data = os.path.join(os.getcwd(), "Resources", "temp_region_mean.csv")
+# air_pollution_data = os.path.join(os.getcwd(), "Resources", "PM2.5 Global Air Pollution 2010-2017.csv")
+# co2_data = os.path.join(os.getcwd(), "Resources", "co2_cleaned.csv")
+# sectorco2_data = os.path.join(os.getcwd(), "Resources", "GHG-Emissions-by-sector.csv")
+# pollution_data = os.path.join(os.getcwd(), "Resources", "death-rates-from-air-pollution.csv")
 
 #################################### get data for region bar graphs ###########################
-bar_df = pd.read_csv(region_bar_data)
+bar_df = pd.read_sql_table('region_temp_table', connection_url)  
 
 temp_var = 1961
 year_array = []
@@ -51,7 +52,7 @@ region_features = [year_array, antartica_array, europe_array, oceania_array, asi
 
 
 #################################### get data for poll line graphs ###########################
-air_pollution_df = pd.read_csv(air_pollution_data)
+air_pollution_df = pd.read_sql_table('air_pollution_table', connection_url) 
 
 year_array_2 = [2010,2011,2012,2013,2014,2015,2016,2017]
 
@@ -93,7 +94,7 @@ line_features = [year_array_2, world_array, euro_array, us_array, china_array, i
 
 
 #################################### get data for co2 bar graph ###########################
-co2_df = pd.read_csv(co2_data)
+co2_df = pd.read_sql_table('co2_table', connection_url) 
 
 country_array = []
 co2_vals_array = []
@@ -110,7 +111,7 @@ co2_features = [country_array, co2_vals_array]
 
 
 #################################### get data for co2 sector pie chart ###########################
-sectorco2_df = pd.read_csv(sectorco2_data)
+sectorco2_df = pd.read_sql_table('sector_co2_table', connection_url) 
 
 sector_array = []
 sector_vals_array = []
@@ -131,7 +132,7 @@ sector_features = [sector_array, sector_vals_array]
 
 
 #################################### get data for pollution charts ###########################
-pollution_df = pd.read_csv(pollution_data)
+pollution_df = pd.read_sql_table('pollution_deaths_table', connection_url)
 big_array = []
 country_names = []
 for index, row in pollution_df.iterrows():
