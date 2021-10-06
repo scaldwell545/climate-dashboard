@@ -3,6 +3,7 @@ d3.json('/sector').then(function(data) {
     
     var sector_trace = data[0]
     var data_trace = data[1]
+    var config = {responsive: true}
 
         var data = [{
           values: data_trace,
@@ -27,6 +28,6 @@ d3.json('/sector').then(function(data) {
 //           margin: {"l": 0, "r": 0, "b": 0, "t": 70}
         };
 
-        Plotly.newPlot('pie', data, layout);
+        Plotly.newPlot('pie', data, layout, config);
     
 });

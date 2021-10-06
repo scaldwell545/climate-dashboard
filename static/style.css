@@ -66,13 +66,10 @@
 
 
 
-/* html { 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+html { 
+  overflow-x: hidden;
 }
- */
+
 body {
     font-family: 'Lato', sans-serif;
 /*     overflow:hidden */
@@ -124,7 +121,7 @@ li a:hover {
     -moz-border-radius-bottomleft: 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background-color: #a5d2a5;
+    background-color: #d8ecd8;
 }
 
 
@@ -142,13 +139,7 @@ a:hover{
 }
 
 a p:hover{
-    -moz-border-radius-topleft: 10px;
-    -moz-border-radius-topright: 10px;
-    -moz-border-radius-bottomright: 10px;
-    -moz-border-radius-bottomleft: 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    border-radius: 10px 10px 10px 10px;
-    background-color: #d8ecd8;
+    color:#a5d2a5;
 }
 
 
@@ -248,5 +239,9 @@ a p:hover{
     
     .info {
         text-align:center;
+    }
+    
+    .navbar-brand {
+        display: none;
     }
     

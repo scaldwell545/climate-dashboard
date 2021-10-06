@@ -10,6 +10,7 @@ d3.json('/region').then(function(data) {
     
     
     //Plot for Antarctica
+    var config = {responsive: true}
     
     
     var layout_1 = {
@@ -44,7 +45,7 @@ d3.json('/region').then(function(data) {
           }
     ];
 
-    Plotly.newPlot('antarctica_bar', data1, layout_1);
+    Plotly.newPlot('antarctica_bar', data1, layout_1, config);
     
     
     
@@ -83,7 +84,7 @@ d3.json('/region').then(function(data) {
           }
     ];
 
-    Plotly.newPlot('europe_bar', data2, layout_2);
+    Plotly.newPlot('europe_bar', data2, layout_2, config);
     
     
     
@@ -121,7 +122,7 @@ d3.json('/region').then(function(data) {
           }
     ];
 
-    Plotly.newPlot('oceania_bar', data3, layout_3);
+    Plotly.newPlot('oceania_bar', data3, layout_3, config);
     
     
     
@@ -159,7 +160,7 @@ d3.json('/region').then(function(data) {
           }
     ];
 
-    Plotly.newPlot('asia_bar', data4, layout_4);
+    Plotly.newPlot('asia_bar', data4, layout_4, config);
     
     
     
@@ -198,6 +199,6 @@ d3.json('/region').then(function(data) {
           }
     ];
 
-    Plotly.newPlot('americas_bar', data5, layout_5);
+    Plotly.newPlot('americas_bar', data5, layout_5, config);
     
 });

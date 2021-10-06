@@ -1,6 +1,8 @@
 // Get the data with d3.
 d3.json('/line').then(function(data) {
     
+    var config = {responsive: true}
+    
     var year_trace = data[0]
     var world_trace = data[1]
     var euro_array = data[2]
@@ -85,7 +87,7 @@ d3.json('/line').then(function(data) {
         colorway : ['#4a934a', '#488A99', '#1F3F49', '#4CB5F5', '#23282D', '#9fe2bf', '#7E909A', '#A5D8DD']
       }
 
-    Plotly.newPlot('lineDiv', traces, layout);
+    Plotly.newPlot('lineDiv', traces, layout, config);
     
     
 });

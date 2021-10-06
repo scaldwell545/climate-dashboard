@@ -30,6 +30,7 @@ function plots(id){
     d3.json('/pollution').then(function(data){        
 
         ///////////// Create the stacked bar chart
+        var config = {responsive: true}
 
         //get data for one individual according to selected ID
         var data_by_ID = data.filter(obj => {
@@ -130,7 +131,7 @@ function plots(id){
                         },
                      };
 
-        Plotly.newPlot('stackedbar', data, layout);
+        Plotly.newPlot('stackedbar', data, layout, config);
         
 
     })

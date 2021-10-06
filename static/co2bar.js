@@ -4,6 +4,8 @@ d3.json('/co2').then(function(data) {
     var country_trace = data[0]
     var c02_trace = data[1]
     
+    var config = {responsive: true}
+    
     var data = [
       {
         x: country_trace,
@@ -38,6 +40,6 @@ d3.json('/co2').then(function(data) {
     
     
 
-    Plotly.newPlot('co2bar', data, layout);
+    Plotly.newPlot('co2bar', data, layout, config);
     
 });
