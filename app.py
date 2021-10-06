@@ -8,22 +8,25 @@ import pandas as pd
 import csv
 import geojson
 import numpy as np
-#from hiddenConfig import password ## hide when deploying
+from HiddenConfig import password ## hide when deploying
 
 app=Flask(__name__)
-
-connection_url = os.environ.get('DATABASE_URL_KL').replace('postgres', 'postgresql')
-engine = create_engine(connection_url)
 morerecords = os.path.join(os.getcwd(), "Resources", "newcountry.geojson")
 
+#####################################local server-comment out on deployment###################
+connection_url=f'postgresql://postgres:{password}@localhost:5432/climate_db'
+# connection_url = os.environ.get('DATABASE_URL').replace('postgres', 'postgresql')
+engine = create_engine(connection_url)
 
-# region_bar_data = os.path.join(os.getcwd(), "Resources", "temp_region_mean.csv")
-# air_pollution_data = os.path.join(os.getcwd(), "Resources", "PM2.5 Global Air Pollution 2010-2017.csv")
-# co2_data = os.path.join(os.getcwd(), "Resources", "co2_cleaned.csv")
-# sectorco2_data = os.path.join(os.getcwd(), "Resources", "GHG-Emissions-by-sector.csv")
-# pollution_data = os.path.join(os.getcwd(), "Resources", "death-rates-from-air-pollution.csv")
+##################################Deployment######################################
+
+# connection_url = os.environ.get('DATABASE_URL_KL').replace('postgres', 'postgresql')
+# engine = create_engine(connection_url)
+
 
 #################################### get data for region bar graphs ###########################
+
+
 bar_df = pd.read_sql_table('region_temp_table', connection_url)  
 
 temp_var = 1961
@@ -161,7 +164,7 @@ the_dict = big_array
 
 
 
-
+############################The Endpoints####################################
 
 
 @app.route('/')
