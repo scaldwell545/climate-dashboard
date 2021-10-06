@@ -45,6 +45,22 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css">
       
       
+    <!-- close navbar when click off -->
+    <script>
+        $(document).ready(function () {
+            $(document).click(
+                function (event) {
+                    var target = $(event.target);
+                    var _mobileMenuOpen = $(".navbar-collapse").hasClass("show");
+                    if (_mobileMenuOpen === true && !target.hasClass("navbar-toggler")) {
+                        $("button.navbar-toggler").click();
+                    }
+                }
+            );
+        });
+    </script>
+      
+      
     </head>
     
     <style>
@@ -60,8 +76,8 @@
 <!--       Navbar -->
       
             <nav class="navbar navbar-light bg-light" style="padding-left:80px; padding-right:80px; padding-top:20px; padding-bottom:20px;">
-            <a class="navbar-brand" href="/" style="font-size: 40px; font-weight:bold;">
-              <i class="fa fa-globe" style="font-size:48px;color:#0045ff"></i> &nbsp; Climate Change Dashboard
+            <a class="navbar-brand" href="/" style="font-size: 35px; font-weight:bold;">
+              <i class="fa fa-globe" style="font-size:48px;color:#4a934a"></i> &nbsp; Climate Change Dashboard
             </a>
                 
             
@@ -92,14 +108,21 @@
       
       
 <!--       Content -->
+      <div class='container'>
+          <div class="row" style="text-align:center; padding-top:50px;">
+              <p style="font-size: 25px;"> "Between 2030 and 2050, climate change is expected to cause approximately 250,000 additional deaths per year, from malnutrition, malaria, diarrhea and heat stress alone. The direct damage costs to health is estimated to be between USD 2-4 billion per year by 2030."</p>
+              <p style="font-size: 25px; text-align:right;"><b>—World Health Organization</b></p>
+          </div>
+      </div>
+      
       
       <div class="container" style="max-width: 100%;">
-            <div class="row" style="margin-bottom:60px; margin-top:60px; background-color: #f8f9fa;">
-                <div class='col col-sm-4' style="padding-right:0; text-align:center; padding:50px;">
-                    <h2 style="font-weight:bold;">Change in Average Mean Surface Temperature (°C) 1970-2019</h2><br>
-                    <p style="font-size: 20px;">Use the slider on the top right to quickly shift between years and view fluctuations in surface temperatures as time changes. <br><br> Use the drop-down layer selection menu to analyze a specific year. <br><br> Click on a country to view the country name and the difference in the average mean surface temperature (°C) from the previous year.</p>
+            <div class="row" style="margin-bottom:0px; margin-top:60px; background-color: #f8f9fa;">
+                <div class='col col-md-4' style="padding-right:0; text-align:center; padding:50px;">
+                    <h2 style="font-weight:bold;">Change in Mean Surface Temperature (°C) 1970-2019 by Country</h2><br>
+                    <p style="font-size: 20px;">Use the slider on the top right to quickly shift between years and view fluctuations in surface temperatures as time changes. <br><br> Use the drop-down layer selection menu to analyze a specific year. <br><br> Click on a country to view the country name and the difference in the mean surface temperature (°C) from the previous year.</p>
                 </div>
-                <div class="col col-sm-8" style="padding-left:0;">
+                <div class="col col-md-8" style="padding-left:0;">
                     <div id="map"></div>
                 </div>
           </div>
@@ -107,15 +130,119 @@
       </div>
       
       
+      <div class="container" style="max-width: 100%;">
+            <div class="row" style="margin-bottom:60px; margin-top:0px; background-color: #f8f9fa; padding-top:80px; padding-bottom:60px; padding-left:20px;">
+                <div class="col-md-8" style="padding-left:0; padding-right:0;">
+                    <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-top:0px; padding-bottom:5px;">
+                        <div class="col" style="padding-left:0; padding-right:0;">
+                            <div id="antarctica_bar"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-top:0px; padding-bottom:5px;">
+                        <div class="col" style="padding-left:0; padding-right:0;">
+                            <div id="europe_bar"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-top:0px; padding-bottom:5px;">
+                        <div class="col" style="padding-left:0; padding-right:0;">
+                            <div id="oceania_bar"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-top:0px; padding-bottom:5px;">
+                        <div class="col" style="padding-left:0; padding-right:0;">
+                            <div id="asia_bar"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-top:0px; padding-bottom:0px;">
+                        <div class="col" style="padding-left:0; padding-right:0;">
+                            <div id="americas_bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="text-align:center; padding:50px;">
+                    <h2 style="font-weight:bold;">Regional Change in Mean Surface Temperature (°C) 1961-2019</h2><br>
+                    <p style="font-size: 20px;">Use these charts to more easily view fluctuations in surface temperature as time progresses. <br><br> Each region corresponds with either a continent or groups of continents. The Americas refers to both North and South America. Oceania refers to Australasia, Melanesia, Micronesia and Polynesia.</p>
+                </div>
+            </div>
+      </div>
+      
+      
+      <div class='container'>
+          <div class="row" style="text-align:center;">
+              <p style="font-size: 25px;"> "For most of the past 800,000 years—much longer than human civilization has existed—the concentration of greenhouse gases in our atmosphere was between about 200 and 280 parts per million. (In other words, there were 200 to 280 molecules of the gases per million molecules of air).<br><br> "But in the past century, that concentration has jumped to more than 400 parts per million, driven up by human activities such as burning fossil fuels and deforestation. The higher concentrations of greenhouse gases—and carbon dioxide in particular—is causing extra heat to be trapped and global temperatures to rise."</p>
+              <p style="font-size: 25px; text-align:right;"><b>—Natural Resources Defense Council, Inc.</b></p>
+          </div>
+      </div>
+      
+      
+      
+        <div class="container" style="max-width: 100%; margin-bottom:60px;">
+            <div class="row" style="margin-bottom:0px; margin-top:60px; background-color: #f8f9fa; text-align:center; padding:50px;">
+                <h2 style="font-weight:bold;">Greenhouse Gas Emissions by Sector and Country (2016)</h2>
+                <p style="font-size: 20px;"><br>Per the United States Energy Information Administration, greenhouse gases absorb infrared radiation and trap its heat in the atmosphere, creating a greenhouse effect that results in global warming and climate change. Some gases occur naturally and are also produced by human activities. Some, such as industrial gases, are exclusively human made. <br><br> Use the pie graph to examine the sector-by-sector breakdown of global greenhouse gas emissions. The bar graph illustrates how each the top 19 countries contribute to total global GHG emissions. These countries were chosen as they lie above the mean value of total GHG emissions (approx. 328 metric tons) among 216 countries.</p>
+            </div>
+            <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa;">
+                <div class="col col-md-5" style="padding-left:50; padding-right:0; margin-left:0;">
+                    <div id='pie'></div>
+                </div>
+                <div class='col col-md-7' style="padding-left:0; padding-right:50; margin-right:0;">
+<!--                     <div class="row">
+                        <div id='pie'></div>
+                    </div>
+                    <div class="row"> -->
+                        <div id="co2bar"></div>
+<!--                     </div> -->
+                </div>
+            </div>
+      </div>
+      
+      <div class='container'>
+          <div class="row" style="text-align:center;">
+              <p style="font-size: 25px;"> "Changes in climate can result in impacts to air quality. <br>Atmospheric warming associated with climate change has the potential to increase ground-level ozone in many regions, which may present challenges for compliance with the ozone standards in the future. <br>However, the direct relationship between climate change on other air pollutants is unknown." <br><br>"Conversely, emissions of pollutants into the air can result in changes to the climate. <br> Ozone in the atmosphere warms the climate, while different components of particulate matter (PM) can have either warming or cooling effects on the climate."</p>
+              <p style="font-size: 25px; text-align:right;"><b>—Environmental Protection Agency</b></p>
+          </div>
+      </div>
+      
+      
+      <div class="container" style="max-width: 100%; margin-bottom:20px;">
+            <div class="row" style="margin-bottom:0px; margin-top:60px; background-color: #f8f9fa;">
+                <div class='col col-md-4' style="padding-right:0; text-align:center; padding:50px;">
+                    <h2 style="font-weight:bold;">PM2.5<sup>1</sup> Air Pollution 2010-2017</h2><br>
+                    <p style="font-size: 20px;">Mean annual exposure of PM2.5 (fine particulate) air pollution is measured in micrograms per cubic meter. <br><br>Countries such as Nepal, Nigeria, Chad, China, and India are among the top 20 countries in mean PM2.5 air pollution. Mean PM2.5 air pollution for Europe, the world, and the U.S. are included for reference.</p>
+                </div>
+                <div class="col col-md-8" style="padding-left:0;">
+                    <div id="lineDiv"></div>
+                </div>
+          </div>
+          
+          <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa;">
+                <div class="col col-md-8" style="padding-left:0; padding-right:0; text-align: center;">
+                    <div class="well">
+                        <h5 style="margin-left:60px;">Select a Year: <select id="selDataset" onchange="optionChanged(this.value)" style="margin-left:60px;"></select></h5>
+<!--                         <select id="selDataset" onchange="optionChanged(this.value)" style="margin-left:60px;"></select> -->
+                        <div id="stackedbar"></div>
+                    </div>
+                </div>
+                <div class='col col-md-4' style="text-align:center; padding:50px;">
+                    <h2 style="font-weight:bold;">Top 20 Countries/Regions by Total Pollution-Related Deaths</h2><br>
+                    <p style="font-size: 20px;">Use the drop down menu to select a specific year from 1990 to 2017. The graph will dynamically update with the top 20 countries in air pollution related deaths for the given year.<br><br>Per the WHO, particulates are a common proxy indicator for air pollution- the major components being sulfate, nitrates, ammonia, sodium chloride, black carbon, mineral dust and water.</p>
+                </div>
+            </div>
+      
+      </div>
+      
+      <div class='container' style="margin-bottom:80px;">
+          <div class="row" style="text-align:center;">
+              <p style="font-size: 20px;"><sup>1</sup> Ambient PM2.5 pollution is defined as the average level of exposure of a nation's population to concentrations of suspended particles measuring less than 2.5 microns in aerodynamic diameter. These particles are capable of penetrating deep into the respiratory tract and causing severe health damage.</p>
+          </div>
+      </div>
+      
+      
       
       <div class="footer">
             <p>&copy; 2021. Thanks for visiting!</p>
     </div>
-      
-      
-      
-      
-      
+
       
 
       
@@ -127,8 +254,13 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <!-- Plotly JS -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-      <script type="text/javascript" src="../static/SliderControl.js"></script>
+    <script type="text/javascript" src="../static/SliderControl.js"></script>
     <script type="text/javascript" src="../static/choro.js"></script> 
+    <script type="text/javascript" src="../static/year_temp_bar.js"></script> 
+    <script type="text/javascript" src="../static/line.js"></script> 
+    <script type="text/javascript" src="../static/co2bar.js"></script>
+    <script type="text/javascript" src="../static/pie.js"></script>
+    <script type="text/javascript" src="../static/pollution.js"></script>
 
     </body>
 </html>

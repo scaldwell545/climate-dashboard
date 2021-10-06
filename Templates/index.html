@@ -44,6 +44,20 @@
     <!-- JQuery CSS-->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css">
       
+    <!-- close navbar when click off -->
+    <script>
+        $(document).ready(function () {
+            $(document).click(
+                function (event) {
+                    var target = $(event.target);
+                    var _mobileMenuOpen = $(".navbar-collapse").hasClass("show");
+                    if (_mobileMenuOpen === true && !target.hasClass("navbar-toggler")) {
+                        $("button.navbar-toggler").click();
+                    }
+                }
+            );
+        });
+    </script>
       
     </head>
     
@@ -60,7 +74,7 @@
 <!--       Navbar -->
       
             <nav class="navbar navbar-light bg-light" style="padding-left:80px; padding-right:80px; padding-top:20px; padding-bottom:20px;">
-            <a class="navbar-brand" href="/" style="font-size: 40px; font-weight:bold;">
+            <a class="navbar-brand" href="/" style="font-size: 35px; font-weight:bold;">
               <i class="fa fa-globe" style="font-size:48px;color:#4a934a"></i> &nbsp; Climate Change Dashboard
             </a>
                 
@@ -99,10 +113,10 @@
                 <div class="container">
                     <div class="row" style="position: relative; padding:30px; margin-bottom:70px;">
                         <div class='"col" colinfo' style="padding:70px;margin:20px;">
-                            <h2 style='font-weight:bold;'>Global Climate Change is the Most Pressing Matter in Recent History. </h2>
+                            <h2 style='font-weight:bold;'>Global Climate Change is Altering the Face of Our Planet. </h2>
                             <br>
-                            <p style="font-size: 20px;">It threatens delicate ecosystems, disrupts weather and preciptation patterns, and increases ocean temperatures, sea level, and acidity.
-                            Such changes have lasting affects on our world- and if we don't act soon, these changes could permanently spiral out of control.</p> <p style="font-size: 20px;font-weight:bold;">So let's do our best to learn the facts.</p><br><br>
+                            <p style="font-size: 20px;">It threatens delicate ecosystems, disrupts weather and preciptation patterns, and increases ocean temperatures, sea levels, and acidity.
+                            Such changes have lasting affects on our world— and if we don't act soon, these changes could permanently spiral out of control.</p> <p style="font-size: 20px;font-weight:bold;">So let's do our best to learn the facts.</p><br><hr><br>
                             
                             <div class="container" style="display: flex">
                                 <div class="row" style="padding:30px">

@@ -4,21 +4,21 @@ var sliderControl = null;
 // https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 
 streetmap = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-    attribution: '&copy; Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL'
+    attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL'
 })
 
 
 
 function getColor(d) {
-    return d > 2 ? '#ff2525' :
-           d > 1.5  ? '#df2940' :
-           d > 1  ? '#bf2d5c' :
-           d > 0.5  ? '#9f3177' :
-           d > 0   ? '#803592' :
-           d > -0.5   ? '#6039ad' :
-           d > -1   ? '#403dc9' :
-           d > -1.5       ? '#2041e4' :
-                        '#0045ff';
+    return d > 2 ? '#d75859 ' :
+           d > 1.5  ? '#e69696 ' :
+           d > 1  ? '#f0bfbf ' :
+           d > 0.5  ? '#fae8e8' :
+           d > 0   ? '#f9f9f9 ' :
+           d > -0.5   ? '#e9f4e9 ' :
+           d > -1   ? '#c7e3c7 ' :
+           d > -1.5       ? '#94c994 ' :
+                        '#4a934a';
     
 }
 
@@ -44,15 +44,15 @@ d3.json('/choropleth').then(function(data) {
         for (var j = 0; j < data.length; j++) {
             try { 
                 
-                temp_var = L.geoJson(data[j], {style: style(data[j]['properties']["temp"][`${i}`]), onEachFeature: function (feature, layer) { layer.bindPopup('<p>Year: '+i+'<br>Country: '+feature.properties['ADMIN']+'<br>Change in Mean Surface Temp: '+feature['properties']["temp"][`${i}`]+' °C</p>');
-                                              }, time:i})
+                temp_var = L.geoJson(data[j], {style: style(data[j]['properties']["temp"][`${i}`]), tine: i, onEachFeature: function (feature, layer) { layer.bindPopup('<p>Country: '+feature.properties['ADMIN']+'<br>Change in Mean Surface Temp: '+feature['properties']["temp"][`${i}`]+' °C</p>');
+                                              }})
                 year_layer.push(temp_var)
             } 
             catch (error) { 
                 null; /* any default can be used */
             };
         }
-        window[`y${i}`] = L.layerGroup(year_layer)
+        window[`y${i}`] = L.layerGroup(year_layer, {time: i})
     }
     
     var baseLayers = {
@@ -116,7 +116,9 @@ var overlayLayers = {
 var myMap = L.map("map", {
     center: [39.3999, -8.2245],
     zoom: 2,
-    layers : [streetmap, y1970]
+    layers : [streetmap, y1970],
+    minZoom: 2,
+    zoomControl: false
 });
 
     
@@ -143,13 +145,13 @@ var myMap = L.map("map", {
     legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [-1, -0.5, 0, 0.5, 1, 1.5],
+        grades = [-1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2],
         labels = [];
 
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+            '<i style="background:' + getColor(grades[i] +0.5) + '"></i> ' +
             grades[i] + '<br>';
     }
 
@@ -157,34 +159,45 @@ var myMap = L.map("map", {
     }
         
     legend.addTo(myMap);
+
+
     
     
-//     L.Control.Layers.include({
-//   getOverlays: function() {
-//     // create hash to hold all layers
-//     var control, layers;
-//     layers = {};
-//     control = this;
-
-//     // loop thru all layers in control
-//     control._layers.forEach(function(obj) {
-//       var layerName;
-
-//       // check if layer is an overlay
-//       if (obj.overlay) {
-//         // get name of overlay
-//         layerName = obj.name;
-//         // store whether it's present on the map or not
-//         return layers[layerName] = control._map.hasLayer(obj.layer);
-//       }
-//     });
-
-//         return layers;
-//       }
-//     });
     
-//     var control = new L.Control.Layers(overlayLayers);
+    
+    // intiate year label textbox on map
+    L.Control.textbox = L.Control.extend({
+            onAdd: function(map) {
 
-//     console.log(control.getOverlays()) // { Truck 1: true, Truck 2: false, Truck 3: false }
+                var text = L.DomUtil.create('div');
+                text.id = "info_text";
+                text.innerHTML = "<h4>1970</h4>"
+                return text;
+            },
+
+            onRemove: function(map) {
+                //Nothing to do here
+            }
+        });
+        L.control.textbox = function(opts) { return new L.Control.textbox(opts);}
+        L.control.textbox({ position: 'topleft' }).addTo(myMap);
+    
+    
+    
+    // when the layer changes, update the year label
+//     sliderControl.on('rangechanged',function (e) {
+       myMap.on('baselayerchange', function (e) {
+        var year_info = e.name   //.markers[0].options.time;
+        $("#info_text")[0].innerHTML = `<h4>${year_info}</h4>`
+    });
+    
+        myMap.spin(true);
+            setTimeout(function () {
+                map.addLayer(tileLayer);    
+                map.spin(false);
+           }, 3000);
+    
+    
+    myMap.addControl( L.control.zoom({position: 'bottomright'}) )
     
 });
