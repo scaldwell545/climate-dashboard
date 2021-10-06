@@ -59,17 +59,48 @@
         });
     </script>
       
+    <script>
+        function cycleBackgrounds() {
+            var index = 0;
+
+            $imageEls = $('.toggle-image'); // Get the images to be cycled.
+
+            setInterval(function () {
+                // Get the next index.  If at end, restart to the beginning.
+                index = index + 1 < $imageEls.length ? index + 1 : 0;
+                // Show the next image.
+                $imageEls.eq(index).addClass('show');
+                // Hide the previous image.
+                $imageEls.eq(index - 1).removeClass('show');
+
+            }, 3500);
+        };
+
+        // Document Ready.
+        $(function () {
+            cycleBackgrounds();
+        });
+    </script>
+      
     </head>
     
-    <style>
+<!--     <style>
         body {
             background-image: url('https://photographylife.com/wp-content/uploads/2014/02/Sunset-Sunflower.jpg');
             padding-top: 100px;
         }
-    </style>
+    </style> -->
     
 
   <body>
+      
+<!--       <div class = 'container' style="margin:0px; padding-left:20px;">
+       -->
+      <div class="background-image toggle-image first-image show"></div>
+      <div class="background-image toggle-image second-image"></div>
+      <div class="background-image toggle-image third-image"></div>
+    
+      
       
 <!--       Navbar -->
       
@@ -109,7 +140,7 @@
       
       
       <div class="container">
-            <div class="row" style="padding-bottom:60px; margin-top:60px">
+            <div class="row" style="padding-bottom:60px; margin-top:150px">
                 <div class="container">
                     <div class="row" style="position: relative; padding:30px; margin-bottom:70px;">
                         <div class='"col" colinfo' style="padding:70px;margin:20px;">
@@ -120,7 +151,7 @@
                             
                             <div class="container" style="display: flex">
                                 <div class="row" style="padding:30px">
-                                    <div class='col wrapcol' style="text-align:center;">
+                                    <div class='col-md-4 wrapcol' style="text-align:center;">
                                         <a href="/data">
                                             <i class="fa fa-table" style="font-size:75px;color:#4a934a;" href="/data"></i>
                                             <p style="font-size: 20px;font-weight:bold;" href="/data">Data Visualizations</p>
@@ -128,7 +159,7 @@
                                         <p style="font-size: 20px;">Explore data visualizations and develop valuable insights on climate change trends.</p>
                                     </div>
 
-                                    <div class='col wrapcol' style="text-align:center;">
+                                    <div class='col-md-4 wrapcol' style="text-align:center;">
                                         <a href="/resources">
                                             <i class="fa fa-book" style="font-size:75px;color:#4a934a;" href="/resources"></i>
                                             <p style="font-size: 20px;font-weight:bold;" href="/resources">Resources</p>
@@ -136,7 +167,7 @@
                                         <p style="font-size: 20px;">Discover how individuals and groups can create actionable plans to combat climate change.</p>
                                     </div>
 
-                                    <div class='col wrapcol' style="text-align:center;">
+                                    <div class='col-md-4 wrapcol' style="text-align:center;">
                                         <a href="/about">
                                             <i class="fa fa-cogs" style="font-size:75px;color:#4a934a;" href="/about"></i>
                                             <p style="font-size: 20px;font-weight:bold;" href="/about">About</p>
@@ -157,6 +188,9 @@
         <p>&copy; 2021. Thanks for visiting!</p>
     </div>
       
+          
+<!--     </div>     
+           -->
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
@@ -164,6 +198,7 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <!-- Plotly JS -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+          
 
     </body>
 </html>
