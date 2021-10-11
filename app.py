@@ -41,15 +41,17 @@ europe_array = []
 oceania_array = []
 asia_array = []
 americas_array = []
+africa_array = []
 
 for i, row in bar_df.iteritems():
     antartica_array.append(row[0])
     europe_array.append(row[1])
     oceania_array.append(row[2])
     asia_array.append(row[3])
-    americas_array.append(row[4])   
+    americas_array.append(row[4])
+    africa_array.append(row[5])
 
-region_features = [year_array, antartica_array, europe_array, oceania_array, asia_array, americas_array]
+region_features = [year_array, antartica_array, europe_array, oceania_array, asia_array, americas_array, africa_array]
 
 
 

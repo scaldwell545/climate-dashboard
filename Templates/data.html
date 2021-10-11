@@ -2,6 +2,8 @@
 <html>
   <head>
     
+    <link rel="shortcut icon" href="https://svg-clipart.com/svg/green/6HEwD12-globe-vector.svg" type="image/x-icon">
+      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -75,36 +77,41 @@
       
 <!--       Navbar -->
       
-            <nav class="navbar navbar-light bg-light" style="padding-left:80px; padding-right:80px; padding-top:20px; padding-bottom:20px;">
-            <a class="navbar-brand" href="/" style="font-size: 35px; font-weight:bold;">
-              <i class="fa fa-globe" style="font-size:48px;color:#4a934a"></i> &nbsp; Climate Change Dashboard
-            </a>
-                
-            
-            <button class="navbar-toggler" 
+            <nav class="navbar navbar-expand-lg navbar-light" style="padding-left:80px; padding-right:80px; padding-top:0px; padding-bottom:0px; background-color:#f8f9fa;">
+                <i class="fa fa-leaf" style="font-size:34px;color:#4a934a; margin-top:20px; margin-bottom:20px;"></i>
+                <div style="display: inline-block;">
+                    <a class="navbar-brand" href="/" style="color:black; padding: 15px; font-size: 30px; font-weight:bold; display: inline-block;">
+                        <p style="margin-top:15px;" id="thebrand">Climate Change Dashboard</p>
+                    </a>
+                </div>
+                <button class="navbar-toggler ms-auto" 
                     type="button" 
                     data-target="#navbarContent" 
                     data-toggle="collapse"
                     aria-controls="navbarContent" 
                     aria-expanded="false" 
-                    aria-labelledby="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link ml-auto" href="/data" style="font-size: 25px; font-weight:bold; color:black; text-align: center;"> Data Visualizations </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link ml-auto" href="/resources" style="font-size: 25px; font-weight:bold; color:black; text-align: center;"> Resources </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link ml-auto" href="/about" style="font-size: 25px; font-weight:bold; color:black; text-align: center;"> About </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                    aria-labelledby="Toggle navigation"
+                    style="border-color: black; color: black">
+                    <span><i class="fa fa-bars" style="color:black; font-size:28px;"></i></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent" tyle="display:flex;">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active" style="padding-right:0; padding-left:0;">
+                            <a class="nav-link" href="/" style="font-size: 20px; font-weight:bold; color:black; padding-right:0; padding-left:0;">&nbsp; &nbsp; Home &nbsp; &nbsp;</a>
+                        </li>
+                        <li class="nav-item active" style="padding-right:0; padding-left:0;">
+                            <a class="nav-link" href="/data" style="font-size: 20px; font-weight:bold; color:black; padding-right:0; padding-left:0;">&nbsp; &nbsp;  Data &nbsp; &nbsp;</a>
+                        </li>
+                        <li class="nav-item active" style="padding-right:0; padding-left:0;">
+                            <a class="nav-link" href="/resources" style="font-size: 20px; font-weight:bold; color:black; padding-right:0; padding-left:0; ">&nbsp; &nbsp; Resources &nbsp; &nbsp;</a>
+                        </li>
+                        <li class="nav-item active" style="padding-right:0; padding-left:0;">
+                            <a class="nav-link" href="/about" style="font-size: 20px; font-weight:bold; color:black; padding-right:0; padding-left:0;">&nbsp;  &nbsp;About &nbsp; &nbsp;</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
       
       
 <!--       Content -->
@@ -122,7 +129,7 @@
                     <h2 style="font-weight:bold;">Change in Mean Surface Temperature (°C) 1970-2019 by Country</h2><br>
                     <p style="font-size: 20px;">Use the slider on the top right to quickly shift between years and view fluctuations in surface temperatures as time changes. <br><br> Use the drop-down layer selection menu to analyze a specific year. <br><br> Click on a country to view the country name and the difference in the mean surface temperature (°C) from the previous year.</p>
                 </div>
-                <div class="col-md-8" style="padding-left:0;">
+                <div class="col-md-8" style="padding-left:0; padding-right:0;">
                     <div id="map"></div>
                 </div>
           </div>
@@ -153,11 +160,19 @@
                             <div id="asia_bar"></div>
                         </div>
                     </div>
-                    <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-top:0px; padding-bottom:0px;">
+                    <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-top:0px; padding-bottom:5px;">
                         <div class="col" style="padding-left:0; padding-right:0;">
                             <div id="americas_bar"></div>
                         </div>
                     </div>
+                    <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-top:0px; padding-bottom:0px;">
+                        <div class="col" style="padding-left:0; padding-right:0;">
+                            <div id="africa_bar"></div>
+                        </div>
+                    </div>
+
+
+<!--                     <div class='tableauPlaceholder' id='viz1633878010884' style='position: relative'><noscript><a href='#'><img alt='Mean Surface Temperature Change (Celcius) by Continent&#47;Region ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Me&#47;MeanSurfaceTemperatureChangeCelciusbyContinentRegion&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='MeanSurfaceTemperatureChangeCelciusbyContinentRegion&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Me&#47;MeanSurfaceTemperatureChangeCelciusbyContinentRegion&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1633878010884');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.6)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script> -->
                 </div>
                 <div class="col-md-4" style="text-align:center; padding:50px;">
                     <h2 style="font-weight:bold;">Regional Change in Mean Surface Temperature (°C) 1961-2019</h2><br>
@@ -178,20 +193,16 @@
       
         <div class="container" style="max-width: 100%; margin-bottom:60px;">
             <div class="row" style="margin-bottom:0px; margin-top:60px; background-color: #f8f9fa; text-align:center; padding:50px;">
-                <h2 style="font-weight:bold;">Greenhouse Gas Emissions by Sector and Country (2016)</h2>
-                <p style="font-size: 20px;"><br>Per the United States Energy Information Administration, greenhouse gases absorb infrared radiation and trap its heat in the atmosphere, creating a greenhouse effect that results in global warming and climate change. Some gases occur naturally and are also produced by human activities. Some, such as industrial gases, are exclusively human made. <br><br> Use the pie graph to examine the sector-by-sector breakdown of global greenhouse gas emissions. The bar graph illustrates how each the top 19 countries contribute to total global GHG emissions. These countries were chosen as they lie above the mean value of total GHG emissions (approx. 328 metric tons) among 216 countries.</p>
+                <h2 style="font-weight:bold;">Greenhouse Gas Emissions by Sector and Country</h2>
+                <p style="font-size: 20px;"><br>Per the United States Energy Information Administration, greenhouse gases absorb infrared radiation and trap its heat in the atmosphere, creating a greenhouse effect that results in global warming and climate change. Some gases occur naturally and are also produced by human activities. Some, such as industrial gases, are exclusively human made. <br><br> Use the pie graph to examine the sector-by-sector breakdown of global greenhouse gas emissions in 2016. The bar graph illustrates how each of the top 20 countries/entities contribute to total global GHG emissions between 1961 and 2017.</p>
             </div>
             <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa;">
                 <div class="col-md-5" style="padding-left:50; padding-right:0; margin-left:0;">
                     <div id='pie'></div>
                 </div>
                 <div class='col-md-7' style="padding-left:0; padding-right:50; margin-right:0;">
-<!--                     <div class="row">
-                        <div id='pie'></div>
-                    </div>
-                    <div class="row"> -->
-                        <div id="co2bar"></div>
-<!--                     </div> -->
+<!--                     <div id="co2bar"></div> -->
+                    <div class='tableauPlaceholder' id='viz1633977561609' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Av&#47;AvgAnnualCO2EmissionsperCountryTop201961-2017&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AvgAnnualCO2EmissionsperCountryTop201961-2017&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Av&#47;AvgAnnualCO2EmissionsperCountryTop201961-2017&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1633977561609');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';} else { vizElement.style.width='100%';vizElement.style.height='550px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
                 </div>
             </div>
       </div>
@@ -240,7 +251,7 @@
       
       
       <div class="footer">
-            <p>&copy; 2021. Thanks for visiting!</p>
+            <p>&copy; S. Caldwell 2021. Thanks for visiting!</p>
     </div>
 
       

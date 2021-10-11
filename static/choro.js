@@ -118,7 +118,8 @@ var myMap = L.map("map", {
     zoom: 2,
     layers : [streetmap, y1970],
     minZoom: 2,
-    zoomControl: false
+    zoomControl: false,
+    scrollWheelZoom: false
 });
 
     
@@ -136,9 +137,10 @@ var myMap = L.map("map", {
     sliderControl.startSlider();
            
 
-//     L.control.layers(baseMaps).addTo(myMap);
     L.control.layers(overlayLayers).addTo(myMap);
     
+    
+/// Initialize legend and add legend to map/////////////////////    
     
     var legend = L.control({position: 'bottomleft'});
 
@@ -156,48 +158,35 @@ var myMap = L.map("map", {
     }
 
     return div;
-    }
+    };
         
     legend.addTo(myMap);
 
-
-    
-    
-    
-    
-    // intiate year label textbox on map
+/////////// intiate year label textbox on map ////////////////////
     L.Control.textbox = L.Control.extend({
-            onAdd: function(map) {
+        onAdd: function(map) {
+            var text = L.DomUtil.create('div');
+            text.id = "info_text";
+            text.innerHTML = "<h4>1970</h4>"
+            return text;
+        },
 
-                var text = L.DomUtil.create('div');
-                text.id = "info_text";
-                text.innerHTML = "<h4>1970</h4>"
-                return text;
-            },
-
-            onRemove: function(map) {
+        onRemove: function(map) {
                 //Nothing to do here
-            }
-        });
-        L.control.textbox = function(opts) { return new L.Control.textbox(opts);}
-        L.control.textbox({ position: 'topleft' }).addTo(myMap);
+        }
+    });
+    L.control.textbox = function(opts) { return new L.Control.textbox(opts);}
+    L.control.textbox({ position: 'topleft' }).addTo(myMap);
     
-    
-    
-    // when the layer changes, update the year label
-//     sliderControl.on('rangechanged',function (e) {
-       myMap.on('baselayerchange', function (e) {
-        var year_info = e.name   //.markers[0].options.time;
+    myMap.on('baselayerchange', function (e) {
+        var year_info = e.name   
         $("#info_text")[0].innerHTML = `<h4>${year_info}</h4>`
     });
     
-        myMap.spin(true);
-            setTimeout(function () {
-                map.addLayer(tileLayer);    
-                map.spin(false);
-           }, 3000);
+    
+/////////// Add zoom control to map
+    myMap.addControl( L.control.zoom({position: 'bottomright'}) );
     
     
-    myMap.addControl( L.control.zoom({position: 'bottomright'}) )
     
 });
