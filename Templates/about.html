@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-      
-    <link rel="shortcut icon" href="https://svg-clipart.com/svg/green/6HEwD12-globe-vector.svg" type="image/x-icon">
     
+    <link rel="shortcut icon" href="https://svg-clipart.com/svg/green/6HEwD12-globe-vector.svg" type="image/x-icon">
+      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>About</title>
     
-<!--     <!-- Leaflet JavaScript code
+    <!-- Leaflet JavaScript code-->
     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
     integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-    crossorigin=""></script> -->
+    crossorigin=""></script>
       
     <!-- JQuery JS-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -30,7 +30,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" 
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
       
-    <!-- Leaflet CSS 
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
     crossorigin=""/>
@@ -116,21 +116,59 @@
       
 <!--       Content -->
       <div class='container'>
-          <div class="row" style="text-align:center; padding-top:50px;">
-              <p style="font-size: 25px;"> Useful defintions data sources</p>
-              <p style="font-size: 25px; text-align:right;"><b>—World Health Organization</b></p>
+          <div class="row" style="text-align:left; padding-top:50px; font-size: 25px;">
+              <p style="text-align:left;"><b>About the Data</b></p>
+              <p> The data used within this dashboard was gathered from Kaggle.com. Click on a header to view the source.</p>
+              <br><br>
+              <hr>
+              <br>
+                  <ul style="padding-left:50px">
+                      <li>
+                          <a href="https://www.kaggle.com/sevgisarac/temperature-change?select=Environment_Temperature_change_E_All_Data_NOFLAG.csv"><b>"Temperature Change"</b></a> <br><br>
+                          Description:<br> "The FAOSTAT Temperature Change domain disseminates statistics of mean surface temperature change by country, with annual updates. The current dissemination covers the period 1961–2019. Statistics are available for monthly, seasonal and annual mean temperature anomalies, i.e., temperature change with respect to a baseline climatology, corresponding to the period 1951–1980. The standard deviation of the temperature change of the baseline methodology is also available. Data are based on the publicly available GISTEMP data, the Global Surface Temperature Change data distributed by the National Aeronautics and Space Administration Goddard Institute for Space Studies (NASA-GISS). Via http://www.fao.org/faostat/en/#data/ET/metadata"<br>
+                          <br>
+                          Link:<br> https://www.kaggle.com/sevgisarac/temperature-change?select=Environment_Temperature_change_E_All_Data_NOFLAG.csv<br><br>
+                      </li>
+                      <li>
+                          <a href="https://www.kaggle.com/yoannboyere/co2-ghg-emissionsdata"><b>"CO2_GHG_emissions-data"</b></a> <br><br>
+                          Description:<br> "This dataset contains CO2 and GHG emissions for countries since 1750 until 2017.
+The source is OurWorldInData (https://ourworldindata.org/co2-and-other-greenhouse-gas-emissions). Via https://ourworldindata.org/co2-and-other-greenhouse-gas-emissions"<br>
+                          <br>
+                          Link:<br> https://www.kaggle.com/yoannboyere/co2-ghg-emissionsdata<br><br>
+                      </li>
+                      <li>
+                          <a href="https://www.kaggle.com/sansuthi/greenhouse-gas-emissions"><b>"Greenhouse Gas Emissions"</b></a> <br><br>
+                          Description:<br> "A two-column dataset for Greenhouse gas emissions by sector. Via http://ourworldindata.org/ghg-emissions-by-sector"<br>
+                          <br>
+                          Link:<br> https://www.kaggle.com/sansuthi/greenhouse-gas-emissions<br><br>
+                      </li>
+                      <li>
+                          <a href="https://www.kaggle.com/akshat0giri/death-due-to-air-pollution-19902017"><b>"Deaths Due to Air Pollution"</b></a> <br><br>
+                          Description:<br> "Year: Years range from 1990 to 2017
+Air pollution (total) (deaths per 100,000) : Contain total death.
+Indoor air pollution (deaths per 100,000) : Contains death due to indoor air pollution.
+Outdoor particulate matter (deaths per 100,000) : Contains death due to outdoor pollution.
+Outdoor ozone pollution (deaths per 100,000) : Death due to ozone pollution. Via https://ourworldindata.org/air-pollution"<br>
+                          <br>
+                          Link:<br> https://www.kaggle.com/akshat0giri/death-due-to-air-pollution-19902017<br><br>
+                      </li>
+                      
+                  </ul>
           </div>
       </div>
+
+      
       
       
     <div class="footer">
-        <p>&copy; 2021. Thanks for visiting!</p>
+        <p>&copy; S. Caldwell 2021. Thanks for visiting!</p>
     </div>
 
       
 
       
       
+
     <!-- D3 JS -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
 

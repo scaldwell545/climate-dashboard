@@ -22,7 +22,7 @@ d3.json('/sector').then(function(data) {
           paper_bgcolor:"#f8f9fa",
           automargin: true,
           title: 'Global GHG Emissions by Sector 2016 (% of Total)',
-          height: 550,
+          height: 650,
           sunburstcolorway:["#4a934a", "#9fb7c4", "#488A99", "#A5D8DD"]
 //           grid: {rows: 1, columns: 2}
 //           margin: {"l": 0, "r": 0, "b": 0, "t": 70}

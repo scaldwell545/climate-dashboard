@@ -163,6 +163,17 @@ the_dict = big_array
 
 
 
+#################################### get data for co2 yearly average charts ###########################
+co2_year_df = pd.read_sql_table('co2_year_table', connection_url)
+year_array = []
+co2_avg_array = []
+
+for index, row in co2_year_df.iterrows():
+    year_array.append(row[1])
+    co2_avg_array.append(row[2])
+
+co2_year_avg_features = [year_array, co2_avg_array]
+
 
 
 
@@ -219,6 +230,11 @@ def sector_pie():
 def pollution():
     
     return(jsonify(the_dict))
+
+@app.route('/co2_year')
+def year_avg():
+
+    return(jsonify(co2_year_avg_features))
 
 
 
