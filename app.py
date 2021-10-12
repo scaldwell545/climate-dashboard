@@ -8,13 +8,13 @@ import pandas as pd
 import csv
 import geojson
 import numpy as np
-from HiddenConfig import password ## hide when deploying
+# from HiddenConfig import password ## hide when deploying
 
 app=Flask(__name__)
 morerecords = os.path.join(os.getcwd(), "Resources", "newcountry.geojson")
 
 #####################################local server-comment out on deployment###################
-connection_url=f'postgresql://postgres:{password}@localhost:5432/climate_db'
+connection_url=f'postgresql://postgres:{os.environ.get("PASSWORD")}@localhost:5432/climate_db'
 # connection_url = os.environ.get('DATABASE_URL').replace('postgres', 'postgresql')
 engine = create_engine(connection_url)
 
