@@ -199,6 +199,7 @@ def about():
 
 
 
+
 @app.route('/choropleth')
 def choro():
     with open(morerecords) as f:
