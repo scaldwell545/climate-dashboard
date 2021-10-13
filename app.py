@@ -13,6 +13,7 @@ import numpy as np
 app=Flask(__name__)
 morerecords = os.path.join(os.getcwd(), "Resources", "newcountry.geojson")
 
+
 #####################################local server-comment out on deployment###################
 # connection_url=f'postgresql://postgres:{password}@localhost:5432/climate_db'
 # # connection_url = os.environ.get('DATABASE_URL').replace('postgres', 'postgresql')

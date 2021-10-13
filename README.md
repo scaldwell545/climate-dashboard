@@ -7,10 +7,8 @@ Climate change is one of the most urgent matters in recent history. It threatens
 #### https://climate-dash-app.herokuapp.com/
 
 <br>
-<hr>
-<br>
 
-### Data sources
+## Data sources
 
 #### -https://www.kaggle.com/sevgisarac/temperature-change?select=Environment_Temperature_change_E_All_Data_NOFLAG.csv
 
