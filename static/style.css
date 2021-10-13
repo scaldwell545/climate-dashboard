@@ -309,7 +309,7 @@ a:hover{
         text-align:center;
     }
     
-    #bleh {
+    .wrapcol {
         float: none;
         margin: auto;
     }
