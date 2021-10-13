@@ -309,8 +309,8 @@ a:hover{
         text-align:center;
     }
     
-    bleh .p{
-         padding:0px;
+    #bleh .p{
+         margin: auto;
     }
     
 }
