@@ -310,7 +310,8 @@ a:hover{
     }
     
     #bleh {
-         margin: auto;
+        float: none;
+        margin: auto;
     }
     
 }
