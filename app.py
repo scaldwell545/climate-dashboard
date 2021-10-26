@@ -8,7 +8,10 @@ import pandas as pd
 import csv
 import geojson
 import numpy as np
+from keras.models import load_model
+from sklearn.preprocessing import StandardScaler
 # from HiddenConfig import password ## hide when deploying
+
 
 app=Flask(__name__)
 morerecords = os.path.join(os.getcwd(), "Resources", "newcountry.geojson")
@@ -176,6 +179,26 @@ for index, row in co2_year_df.iterrows():
 co2_year_avg_features = [year_array, co2_avg_array]
 
 
+#################################### get machine learning model prediction ###########################
+
+model = load_model('MachineLearning/Models/pm10_model.h5')
+
+path = os.path.join(os.getcwd(), 'MachineLearning', 'Resources', 'all_city_data.csv')
+df = pd.read_csv(path)
+df = df.drop(columns = {"Unnamed: 0"})
+features = ["PM10", "SO2", "NO2", "CO", "O3", "TEMP", "PRES", "DEWP", "RAIN"]
+scalar = StandardScaler()
+# the fit_transform ops returns a 2d numpy.array, we cast it to a pd.DataFrame
+standardized_features = pd.DataFrame(scalar.fit_transform(df[features].copy()), columns = features)
+old_shape = df.shape
+# drop the unnormalized features from the dataframe
+df.drop(features, axis = 1, inplace = True)
+# join back the normalized features
+df = pd.concat([df, standardized_features], axis= 1)
+assert old_shape == df.shape, "something went wrong!"
+grouped_df=df.groupby('dt').mean()
+
+
 
 
 ############################The Endpoints####################################
@@ -196,6 +219,123 @@ def res():
 @app.route('/about')
 def about(): 
     return render_template('about.html')
+
+@app.route('/predict', methods=['GET', 'POST'])
+def predict(): 
+    if request.method == 'POST':
+        try:
+            user_input = request.form['Time']
+            user_input = int(user_input)
+            
+            ############### Get prediction for PM10 ####################
+            predictions=[]
+            input_ary=np.array(grouped_df['PM10'][-365:].values)
+            for each_t in range(user_input): 
+                input_ary = input_ary[-365:]
+                input_ary = np.reshape(input_ary, (1, 365, 1))
+                prediction=model.predict(input_ary)
+                predictions.append(prediction[0])
+                input_ary=np.append(input_ary, prediction)
+            pm10 = predictions[user_input-1][0]
+            
+            ############### Get prediction for S02 ####################
+            predictions=[]
+            input_ary=np.array(grouped_df['SO2'][-365:].values)
+            for each_t in range(user_input): 
+                input_ary = input_ary[-365:]
+                input_ary = np.reshape(input_ary, (1, 365, 1))
+                prediction=model.predict(input_ary)
+                predictions.append(prediction[0])
+                input_ary=np.append(input_ary, prediction)
+            so2 = predictions[user_input-1][0]
+            
+            ############### Get prediction for CO ####################
+            predictions=[]
+            input_ary=np.array(grouped_df['CO'][-365:].values)
+            for each_t in range(user_input): 
+                input_ary = input_ary[-365:]
+                input_ary = np.reshape(input_ary, (1, 365, 1))
+                prediction=model.predict(input_ary)
+                predictions.append(prediction[0])
+                input_ary=np.append(input_ary, prediction)
+            co = predictions[user_input-1][0]
+            
+            ############### Get prediction for DEWP ####################
+            predictions=[]
+            input_ary=np.array(grouped_df['DEWP'][-365:].values)
+            for each_t in range(user_input): 
+                input_ary = input_ary[-365:]
+                input_ary = np.reshape(input_ary, (1, 365, 1))
+                prediction=model.predict(input_ary)
+                predictions.append(prediction[0])
+                input_ary=np.append(input_ary, prediction)
+            dewp = predictions[user_input-1][0]
+            
+            ############### Get prediction for NO2 ####################
+            predictions=[]
+            input_ary=np.array(grouped_df['NO2'][-365:].values)
+            for each_t in range(user_input): 
+                input_ary = input_ary[-365:]
+                input_ary = np.reshape(input_ary, (1, 365, 1))
+                prediction=model.predict(input_ary)
+                predictions.append(prediction[0])
+                input_ary=np.append(input_ary, prediction)
+            no2 = predictions[user_input-1][0]
+            
+            ############### Get prediction for O3 ####################
+            predictions=[]
+            input_ary=np.array(grouped_df['O3'][-365:].values)
+            for each_t in range(user_input): 
+                input_ary = input_ary[-365:]
+                input_ary = np.reshape(input_ary, (1, 365, 1))
+                prediction=model.predict(input_ary)
+                predictions.append(prediction[0])
+                input_ary=np.append(input_ary, prediction)
+            o3 = predictions[user_input-1][0]
+            
+            ############### Get prediction for PRES ####################
+            predictions=[]
+            input_ary=np.array(grouped_df['PRES'][-365:].values)
+            for each_t in range(user_input): 
+                input_ary = input_ary[-365:]
+                input_ary = np.reshape(input_ary, (1, 365, 1))
+                prediction=model.predict(input_ary)
+                predictions.append(prediction[0])
+                input_ary=np.append(input_ary, prediction)
+            pres = predictions[user_input-1][0]
+            
+            ############### Get prediction for RAIN ####################
+            predictions=[]
+            input_ary=np.array(grouped_df['RAIN'][-365:].values)
+            for each_t in range(user_input): 
+                input_ary = input_ary[-365:]
+                input_ary = np.reshape(input_ary, (1, 365, 1))
+                prediction=model.predict(input_ary)
+                predictions.append(prediction[0])
+                input_ary=np.append(input_ary, prediction)
+            rain = predictions[user_input-1][0]
+            
+            ############### Get prediction for TEMP ####################
+            predictions=[]
+            input_ary=np.array(grouped_df['TEMP'][-365:].values)
+            for each_t in range(user_input): 
+                input_ary = input_ary[-365:]
+                input_ary = np.reshape(input_ary, (1, 365, 1))
+                prediction=model.predict(input_ary)
+                predictions.append(prediction[0])
+                input_ary=np.append(input_ary, prediction)
+            temp = predictions[user_input-1][0]
+            variable_array = [so2, co, dewp, no2, o3, pm10, pres, rain, temp]
+            
+            
+            
+            
+            
+            
+            return render_template('predict.html', pred=str(variable_array))
+        except:
+            return render_template('predict.html', pred="Invalid Value")
+    return render_template('predict.html')
 
 
 

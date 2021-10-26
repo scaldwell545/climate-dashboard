@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel="shortcut icon" href="https://svg-clipart.com/svg/green/6HEwD12-globe-vector.svg" type="image/x-icon">
+      
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Visualizations</title>
+    
+    <!-- Leaflet JavaScript code-->
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+      
+    <!-- JQuery JS-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+      
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+            crossorigin="anonymous"></script>
+      
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+      
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+      
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet'> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+    <!-- JQuery CSS-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css">
+      
+      
+    <!-- close navbar when click off -->
+    <script>
+        $(document).ready(function () {
+            $(document).click(
+                function (event) {
+                    var target = $(event.target);
+                    var _mobileMenuOpen = $(".navbar-collapse").hasClass("show");
+                    if (_mobileMenuOpen === true && !target.hasClass("navbar-toggler")) {
+                        $("button.navbar-toggler").click();
+                    }
+                }
+            );
+        });
+    </script>
+      
+      
+    </head>
+    
+    <style>
+        body {
+/*             background-image: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701341921.jpg'); */
+            padding-top: 150px;
+        }
+    </style>
+    
+
+  <body>
+      
+<!--       Navbar -->
+      
+            <nav class="navbar navbar-expand-lg navbar-light" style="padding-left:80px; padding-right:80px; padding-top:0px; padding-bottom:0px; background-color:#f8f9fa;">
+                <i class="fa fa-leaf" style="font-size:34px;color:#4a934a; margin-top:20px; margin-bottom:20px;"></i>
+                <div style="display: inline-block;">
+                    <a class="navbar-brand" href="/" style="color:black; padding: 15px; font-size: 30px; font-weight:bold; display: inline-block;">
+                        <p style="margin-top:15px;" id="thebrand">Climate Change Dashboard</p>
+                    </a>
+                </div>
+                <button class="navbar-toggler ms-auto" 
+                    type="button" 
+                    data-target="#navbarContent" 
+                    data-toggle="collapse"
+                    aria-controls="navbarContent" 
+                    aria-expanded="false" 
+                    aria-labelledby="Toggle navigation"
+                    style="border-color: black; color: black">
+                    <span><i class="fa fa-bars" style="color:black; font-size:28px;"></i></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent" tyle="display:flex;">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active" style="padding-right:0; padding-left:0;">
+                            <a class="nav-link" href="/" style="font-size: 20px; font-weight:bold; color:black; padding-right:0; padding-left:0;">&nbsp; &nbsp; Home &nbsp; &nbsp;</a>
+                        </li>
+                        <li class="nav-item active" style="padding-right:0; padding-left:0;">
+                            <a class="nav-link" href="/data" style="font-size: 20px; font-weight:bold; color:black; padding-right:0; padding-left:0;">&nbsp; &nbsp;  Data &nbsp; &nbsp;</a>
+                        </li>
+                        <li class="nav-item active" style="padding-right:0; padding-left:0;">
+                            <a class="nav-link" href="/predict" style="font-size: 20px; font-weight:bold; color:black; padding-right:0; padding-left:0;">&nbsp;  &nbsp; Predict &nbsp; &nbsp;</a>
+                        </li>
+                        <li class="nav-item active" style="padding-right:0; padding-left:0;">
+                            <a class="nav-link" href="/resources" style="font-size: 20px; font-weight:bold; color:black; padding-right:0; padding-left:0; ">&nbsp; &nbsp; Resources &nbsp; &nbsp;</a>
+                        </li>
+                        <li class="nav-item active" style="padding-right:0; padding-left:0;">
+                            <a class="nav-link" href="/about" style="font-size: 20px; font-weight:bold; color:black; padding-right:0; padding-left:0;">&nbsp;  &nbsp;About &nbsp; &nbsp;</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+      
+      
+<!--       Content -->
+      <div class='container'>
+          <div class="row" style="text-align:center; padding-top:50px;">
+              <p style="font-size: 30px; font-weight:bold;"> Use our machine learning model to predict future PM2.5 (µg/m3) pollution concentrations in China.</p>
+          </div>
+      </div>
+      
+      
+      <div class="container" style="max-width: 100%;">
+            <div class="row" style="margin-bottom:0px; margin-top:60px; background-color: #f8f9fa;">
+                <div class='col-md-8' style="padding-right:0; text-align:center; padding:50px;">
+                    <h2 style="font-weight:bold;">Change in Mean Surface Temperature (°C) 1970-2019 by Country</h2><br>
+                    <p style="font-size: 20px;">Use the slider on the top right to quickly shift between years and view fluctuations in surface temperatures as time changes. <br><br> Use the drop-down layer selection menu to analyze a specific year. <br><br> Click on a country to view the country name and the difference in the mean surface temperature (°C) from the previous year.</p>
+                </div>
+                <div class='col-md-4' style="padding-right:0; text-align:center; padding:50px;">
+                    <form method = "POST">
+                        <p>Time: <input type = "text" name = "Time" /></p>
+                        <p>PM2.5 Concentration: {{ pred }}</p>
+                    </form>
+                </div>
+          </div>
+      </div>
+      <div class="footer">
+          <p>&copy; S. Caldwell 2021. Thanks for visiting!</p>
+      </div>
+
+      
+
+      
+      
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <!-- D3 JS -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- Plotly JS -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+    </body>
+</html>
