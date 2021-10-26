@@ -181,15 +181,14 @@ co2_year_avg_features = [year_array, co2_avg_array]
 
 #################################### get machine learning model prediction ###########################
 
-pm10_model = load_model('MachineLearning/Models/pm10_model.h5')
 co_model = load_model('MachineLearning/Models/co_model.h5')
-no2_model = load_model('MachineLearning/Models/no2_model.h5')
 dewp_model = load_model('MachineLearning/Models/dewp_model.h5')
+no2_model = load_model('MachineLearning/Models/no2_model.h5')
 o3_model = load_model('MachineLearning/Models/o3_model.h5')
 pm10_model = load_model('MachineLearning/Models/pm10_model.h5')
 pres_model = load_model('MachineLearning/Models/pres_model.h5')
-rain_model = load_model('MachineLearning/Models/pm10_model.h5')
-so2_model = load_model('MachineLearning/Models/rso2_model.h5')
+rain_model = load_model('MachineLearning/Models/rain_model.h5')
+so2_model = load_model('MachineLearning/Models/so2_model.h5')
 temp_model = load_model('MachineLearning/Models/temp_model.h5')
 
 path = os.path.join(os.getcwd(), 'MachineLearning', 'Resources', 'all_city_data.csv')
