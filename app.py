@@ -181,7 +181,16 @@ co2_year_avg_features = [year_array, co2_avg_array]
 
 #################################### get machine learning model prediction ###########################
 
-model = load_model('MachineLearning/Models/pm10_model.h5')
+pm10_model = load_model('MachineLearning/Models/pm10_model.h5')
+co_model = load_model('MachineLearning/Models/co_model.h5')
+no2_model = load_model('MachineLearning/Models/no2_model.h5')
+dewp_model = load_model('MachineLearning/Models/dewp_model.h5')
+o3_model = load_model('MachineLearning/Models/o3_model.h5')
+pm10_model = load_model('MachineLearning/Models/pm10_model.h5')
+pres_model = load_model('MachineLearning/Models/pres_model.h5')
+rain_model = load_model('MachineLearning/Models/pm10_model.h5')
+so2_model = load_model('MachineLearning/Models/rso2_model.h5')
+temp_model = load_model('MachineLearning/Models/temp_model.h5')
 
 path = os.path.join(os.getcwd(), 'MachineLearning', 'Resources', 'all_city_data.csv')
 df = pd.read_csv(path)
@@ -233,7 +242,7 @@ def predict():
             for each_t in range(user_input): 
                 input_ary = input_ary[-365:]
                 input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction=model.predict(input_ary)
+                prediction = pm10_model.predict(input_ary)
                 predictions.append(prediction[0])
                 input_ary=np.append(input_ary, prediction)
             pm10 = predictions[user_input-1][0]
@@ -244,7 +253,7 @@ def predict():
             for each_t in range(user_input): 
                 input_ary = input_ary[-365:]
                 input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction=model.predict(input_ary)
+                prediction = so2_model.predict(input_ary)
                 predictions.append(prediction[0])
                 input_ary=np.append(input_ary, prediction)
             so2 = predictions[user_input-1][0]
@@ -255,7 +264,7 @@ def predict():
             for each_t in range(user_input): 
                 input_ary = input_ary[-365:]
                 input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction=model.predict(input_ary)
+                prediction = co_model.predict(input_ary)
                 predictions.append(prediction[0])
                 input_ary=np.append(input_ary, prediction)
             co = predictions[user_input-1][0]
@@ -266,7 +275,7 @@ def predict():
             for each_t in range(user_input): 
                 input_ary = input_ary[-365:]
                 input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction=model.predict(input_ary)
+                prediction = dewp_model.predict(input_ary)
                 predictions.append(prediction[0])
                 input_ary=np.append(input_ary, prediction)
             dewp = predictions[user_input-1][0]
@@ -277,7 +286,7 @@ def predict():
             for each_t in range(user_input): 
                 input_ary = input_ary[-365:]
                 input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction=model.predict(input_ary)
+                prediction = no2_model.predict(input_ary)
                 predictions.append(prediction[0])
                 input_ary=np.append(input_ary, prediction)
             no2 = predictions[user_input-1][0]
@@ -288,7 +297,7 @@ def predict():
             for each_t in range(user_input): 
                 input_ary = input_ary[-365:]
                 input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction=model.predict(input_ary)
+                prediction = o3_model.predict(input_ary)
                 predictions.append(prediction[0])
                 input_ary=np.append(input_ary, prediction)
             o3 = predictions[user_input-1][0]
@@ -299,7 +308,7 @@ def predict():
             for each_t in range(user_input): 
                 input_ary = input_ary[-365:]
                 input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction=model.predict(input_ary)
+                prediction = pres_model.predict(input_ary)
                 predictions.append(prediction[0])
                 input_ary=np.append(input_ary, prediction)
             pres = predictions[user_input-1][0]
@@ -310,7 +319,7 @@ def predict():
             for each_t in range(user_input): 
                 input_ary = input_ary[-365:]
                 input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction=model.predict(input_ary)
+                prediction = rain_model.predict(input_ary)
                 predictions.append(prediction[0])
                 input_ary=np.append(input_ary, prediction)
             rain = predictions[user_input-1][0]
@@ -321,7 +330,7 @@ def predict():
             for each_t in range(user_input): 
                 input_ary = input_ary[-365:]
                 input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction=model.predict(input_ary)
+                prediction = temp_model.predict(input_ary)
                 predictions.append(prediction[0])
                 input_ary=np.append(input_ary, prediction)
             temp = predictions[user_input-1][0]
