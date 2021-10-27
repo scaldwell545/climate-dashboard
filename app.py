@@ -8,8 +8,6 @@ import pandas as pd
 import csv
 import geojson
 import numpy as np
-from keras.models import load_model
-from sklearn.preprocessing import StandardScaler
 # from HiddenConfig import password ## hide when deploying
 
 
@@ -210,107 +208,8 @@ grouped_df=df.groupby('dt').mean()
 
 
 
-############### Get prediction for PM10 ####################
-### We want to get like 2 or 3 years of predictions ahead oh time since heroku doesn't want to take more than 30 seconds to load
-days_of_data = (365) * 2
-predictions=[]
-input_ary=np.array(grouped_df['PM10'][-365:].values)
-for each_t in range(days_of_data): 
-                input_ary = input_ary[-365:]
-                input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction = pm10_model.predict(input_ary)
-                predictions.append(prediction[0])
-                input_ary=np.append(input_ary, prediction)
-pm10 = predictions
-            
-############### Get prediction for S02 ####################
-predictions=[]
-input_ary=np.array(grouped_df['SO2'][-365:].values)
-for each_t in range(days_of_data): 
-                input_ary = input_ary[-365:]
-                input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction = so2_model.predict(input_ary)
-                predictions.append(prediction[0])
-                input_ary=np.append(input_ary, prediction)
-so2 = predictions
-            
-############### Get prediction for CO ####################
-predictions=[]
-input_ary=np.array(grouped_df['CO'][-365:].values)
-for each_t in range(days_of_data): 
-                input_ary = input_ary[-365:]
-                input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction = co_model.predict(input_ary)
-                predictions.append(prediction[0])
-                input_ary=np.append(input_ary, prediction)
-co = predictions
-            
-############### Get prediction for DEWP ####################
-predictions=[]
-input_ary=np.array(grouped_df['DEWP'][-365:].values)
-for each_t in range(days_of_data): 
-                input_ary = input_ary[-365:]
-                input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction = dewp_model.predict(input_ary)
-                predictions.append(prediction[0])
-                input_ary=np.append(input_ary, prediction)
-dewp = predictions
-            
-############### Get prediction for NO2 ####################
-predictions=[]
-input_ary=np.array(grouped_df['NO2'][-365:].values)
-for each_t in range(days_of_data): 
-                input_ary = input_ary[-365:]
-                input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction = no2_model.predict(input_ary)
-                predictions.append(prediction[0])
-                input_ary=np.append(input_ary, prediction)
-no2 = predictions
-            
-############### Get prediction for O3 ####################
-predictions=[]
-input_ary=np.array(grouped_df['O3'][-365:].values)
-for each_t in range(days_of_data): 
-                input_ary = input_ary[-365:]
-                input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction = o3_model.predict(input_ary)
-                predictions.append(prediction[0])
-                input_ary=np.append(input_ary, prediction)
-o3 = predictions
-            
-############### Get prediction for PRES ####################
-predictions=[]
-input_ary=np.array(grouped_df['PRES'][-365:].values)
-for each_t in range(days_of_data): 
-                input_ary = input_ary[-365:]
-                input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction = pres_model.predict(input_ary)
-                predictions.append(prediction[0])
-                input_ary=np.append(input_ary, prediction)
-pres = predictions
-            
-############### Get prediction for RAIN ####################
-predictions=[]
-input_ary=np.array(grouped_df['RAIN'][-365:].values)
-for each_t in range(days_of_data): 
-                input_ary = input_ary[-365:]
-                input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction = rain_model.predict(input_ary)
-                predictions.append(prediction[0])
-                input_ary=np.append(input_ary, prediction)
-rain = predictions
-            
-############### Get prediction for TEMP ####################
-predictions=[]
-input_ary=np.array(grouped_df['TEMP'][-365:].values)
-for each_t in range(days_of_data): 
-                input_ary = input_ary[-365:]
-                input_ary = np.reshape(input_ary, (1, 365, 1))
-                prediction = temp_model.predict(input_ary)
-                predictions.append(prediction[0])
-                input_ary=np.append(input_ary, prediction)
-temp = predictions
-variable_array = [so2, co, dewp, no2, o3, pm10, pres, rain, temp]
+############### Get prediction data ####################
+
 
 
 
@@ -347,10 +246,10 @@ def predict():
             return render_template('predict.html', pred="Invalid Value")
     return render_template('predict.html')
 
-@app.route('/predictdata')
-def predictdata():
+# @app.route('/predictdata')
+# def predictdata():
     
-    return(jsonify(variable_array))
+#     return()
 
 
 
