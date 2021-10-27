@@ -179,30 +179,30 @@ co2_year_avg_features = [year_array, co2_avg_array]
 
 #################################### get machine learning model prediction ###########################
 
-co_model = load_model('MachineLearning/Models/co_model.h5')
-dewp_model = load_model('MachineLearning/Models/dewp_model.h5')
-no2_model = load_model('MachineLearning/Models/no2_model.h5')
-o3_model = load_model('MachineLearning/Models/o3_model.h5')
-pm10_model = load_model('MachineLearning/Models/pm10_model.h5')
-pres_model = load_model('MachineLearning/Models/pres_model.h5')
-rain_model = load_model('MachineLearning/Models/rain_model.h5')
-so2_model = load_model('MachineLearning/Models/so2_model.h5')
-temp_model = load_model('MachineLearning/Models/temp_model.h5')
+# co_model = load_model('MachineLearning/Models/co_model.h5')
+# dewp_model = load_model('MachineLearning/Models/dewp_model.h5')
+# no2_model = load_model('MachineLearning/Models/no2_model.h5')
+# o3_model = load_model('MachineLearning/Models/o3_model.h5')
+# pm10_model = load_model('MachineLearning/Models/pm10_model.h5')
+# pres_model = load_model('MachineLearning/Models/pres_model.h5')
+# rain_model = load_model('MachineLearning/Models/rain_model.h5')
+# so2_model = load_model('MachineLearning/Models/so2_model.h5')
+# temp_model = load_model('MachineLearning/Models/temp_model.h5')
 
-path = os.path.join(os.getcwd(), 'MachineLearning', 'Resources', 'all_city_data.csv')
-df = pd.read_csv(path)
-df = df.drop(columns = {"Unnamed: 0"})
-features = ["PM10", "SO2", "NO2", "CO", "O3", "TEMP", "PRES", "DEWP", "RAIN"]
-scalar = StandardScaler()
-# the fit_transform ops returns a 2d numpy.array, we cast it to a pd.DataFrame
-standardized_features = pd.DataFrame(scalar.fit_transform(df[features].copy()), columns = features)
-old_shape = df.shape
-# drop the unnormalized features from the dataframe
-df.drop(features, axis = 1, inplace = True)
-# join back the normalized features
-df = pd.concat([df, standardized_features], axis= 1)
-assert old_shape == df.shape, "something went wrong!"
-grouped_df=df.groupby('dt').mean()
+# path = os.path.join(os.getcwd(), 'MachineLearning', 'Resources', 'all_city_data.csv')
+# df = pd.read_csv(path)
+# df = df.drop(columns = {"Unnamed: 0"})
+# features = ["PM10", "SO2", "NO2", "CO", "O3", "TEMP", "PRES", "DEWP", "RAIN"]
+# scalar = StandardScaler()
+# # the fit_transform ops returns a 2d numpy.array, we cast it to a pd.DataFrame
+# standardized_features = pd.DataFrame(scalar.fit_transform(df[features].copy()), columns = features)
+# old_shape = df.shape
+# # drop the unnormalized features from the dataframe
+# df.drop(features, axis = 1, inplace = True)
+# # join back the normalized features
+# df = pd.concat([df, standardized_features], axis= 1)
+# assert old_shape == df.shape, "something went wrong!"
+# grouped_df=df.groupby('dt').mean()
 
 
 
