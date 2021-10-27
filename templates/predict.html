@@ -120,7 +120,7 @@
 <!--       Content -->
       <div class='container'>
           <div class="row" style="text-align:center; padding-top:50px;">
-              <p style="font-size: 30px; font-weight:bold;"> "Fine particulate matter (PM2.5) is an air pollutant that is a concern for people's health when levels in air are high. PM2.5 are tiny particles in the air that reduce visibility and cause the air to appear hazy when levels are elevated. Outdoor PM2.5 levels are most likely to be elevated on days with little or no wind or air mixing".</p>
+              <p style="font-size: 25px;"> "Fine particulate matter (PM2.5) is an air pollutant that is a concern for people's health when levels in air are high. PM2.5 are tiny particles in the air that reduce visibility and cause the air to appear hazy when levels are elevated. Outdoor PM2.5 levels are most likely to be elevated on days with little or no wind or air mixing."</p>
               <p style="font-size: 25px; text-align:right;"><b>—New York State Health Department</b></p>
           </div>
       </div>
@@ -128,11 +128,11 @@
       
       <div class="container" style="max-width: 100%;">
             <div class="row" style="margin-bottom:0px; margin-top:60px; background-color: #f8f9fa;">
-                <div class='col-md-8' style="padding-right:0; text-align:center; padding:50px;">
-                    <h2 style="font-weight:bold;">Change in Mean Surface Temperature (°C) 1970-2019 by Country</h2><br>
-                    <p style="font-size: 30px; font-weight:bold;"> Use our machine learning model to predict future PM2.5 (µg/m3) pollution concentrations in China.</p>
+                <div class='col-md-6' style="padding-right:0; text-align:center; padding:50px;">
+                    <h2 style="font-weight:bold;">Predictive PM2.5 Model</h2><br>
+                    <p style="font-size: 20px;"> Use our machine learning model to predict future PM2.5 (µg/m3) pollution concentrations in China. <br><br> This model is based on time series models trained on data gathered from 12 different Chinese Provences during the period of 1/3/2013 to 12/2/2017. As such, predicted PM2.5 values are based on time steps in the future from the final date included in the model (12/2/2017). <br><br> For example, an input of '365' yields an estimated mean PM2.5 concentration on the day 12/2/2018.</p>
                 </div>
-                <div class='col-md-4' style="padding-right:0; text-align:center; padding:50px;">
+                <div class='col-md-6' style="padding-right:0; text-align:center; padding:50px;">
                     <form method = "POST">
                         <p>Time: <input type = "text" name = "Time" /></p>
                         <p>PM2.5 Concentration: {{ pred }}</p>
