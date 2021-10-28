@@ -27,10 +27,10 @@ function addDataPointsAndRender() {
     
     
     var layout = {
-      title: 'CO2 and GHG Emissions by Country 2016 (Metric Tons)',
+      title: 'Predicted PM2.5 Concentrations',
       yaxis: {
           title: {
-              text: 'Emissions (Metric Tons)'
+              text: 'PM2.5 (µg/m3)'
           },
             },
         plot_bgcolor:"#f8f9fa",
