@@ -212,18 +212,16 @@ def res():
 def about(): 
     return render_template('about.html')
 
-@app.route('/predict', methods=['GET', 'POST'])
+@app.route('/predict', methods=['POST', 'GET'])
 def predict(): 
-#     return render_template('predict.html')
+    return render_template("predict.html", pred=12)
     if request.method == 'POST':
         try:
             input_year = request.form.get('yearInputName')
             input_year = int(input_year)
             return render_template("predict.html", pred=input_year)
         except:
-            return render_template("predict.html", pred=12)
-            else:
-                return render_template("predict.html", pred="Invalid Value")
+            return render_template("predict.html", pred="Invalid Value")
 #     return render_template('predict.html')
 
 # @app.route('/predictdata')
