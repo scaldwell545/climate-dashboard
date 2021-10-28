@@ -218,10 +218,10 @@ def predict():
         try:
             user_input = request.form['Time']
             user_input = int(user_input)
-            return render_template('predict.html', pred=str(user_input))
+            return pred=str(user_input)
         except:
-            return render_template('predict.html', pred="Invalid Value")
-    return render_template('predict.html')
+            return pred="Invalid Value"
+#     return render_template('predict.html')
 
 # @app.route('/predictdata')
 # def predictdata():
