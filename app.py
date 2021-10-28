@@ -214,7 +214,7 @@ def about():
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict(): 
-    render_template('predict.html')
+    return render_template('predict.html')
     if request.method == 'POST':
         try:
             input_year = request.form.get('yearInputName')
