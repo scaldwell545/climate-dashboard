@@ -4,5 +4,6 @@ function addPlot() {
     d3.json('/predictdata').then(function(data) {
         console.log(formInfo);
         console.log(data);
-    };)
+    }
+                                 );
 };
