@@ -181,7 +181,7 @@ co2_year_avg_features = [year_array, co2_avg_array]
 ############### Get prediction data ####################
 
 predictions_path = os.path.join(os.getcwd(), 'Resources', 'predictions.csv')
-predictions_df = pd.read_csv(path)
+predictions_df = pd.read_csv(predictions_path)
 
 for index, row in predictions_df.iterrows():
     datetime_array.append(row[1])
