@@ -221,8 +221,7 @@ def predict():
             input_year = int(input_year)
             return render_template("predict.html", pred=input_year)
         except:
-            if input_year == int(input_year);
-                return render_template("predict.html", pred=12)
+            return render_template("predict.html", pred=12)
             else:
                 return render_template("predict.html", pred="Invalid Value")
 #     return render_template('predict.html')
