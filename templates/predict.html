@@ -131,9 +131,10 @@
                 <h2 style="font-weight:bold; text-align:center; padding-top:50px;">Forecasting PM2.5 Concentrations</h2><br>
                 <div class='col-md-6' style="padding-right:0; text-align:center; padding:50px;">
                     <p style="font-size: 20px;">Use our machine learning model to predict future PM2.5 (µg/m3) pollution concentrations in China. <br><br> This model is based on time series models trained on data gathered from 12 different Chinese Provences during the period 1/3/2013 - 12/2/2017. As such, predicted PM2.5 values are based on integer time steps from the final date included in the model (12/2/2017).</p>
-                    <form method = "POST" id="info">
-                        <p>Time Steps: <input type = "text" name = "Time"/>
-                        <input type="submit" value="Submit" onclick="addPlot()"></p>
+                    <form method = "POST">
+                        <p>Time Steps: <input type = "text" name = "Time" onclick="addPlot()" id = "uniqueID"/>
+<!--                         <input type="submit" value="Submit" onclick="addPlot()"></p> -->
+                        <p>Prediction = {{ pred }}</p>
                     </form>
                     <p style="font-size: 20px;">Ex: An input of '365' yields an estimated mean PM2.5 concentration on the day 12/2/2018.</p>
                 </div>

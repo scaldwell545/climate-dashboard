@@ -1,4 +1,4 @@
 function addPlot() {
-    var formInfo = document.forms['time'].value;
+    var formInfo = document.getElementById("uniqueID").value;
     console.log(formInfo)
 };
