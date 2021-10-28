@@ -214,21 +214,21 @@ def about():
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict(): 
-#     return render_template("predict.html", pred=12)
-#     if request.method == 'POST':
-        try:
-            input_year = request.form.get('Time')
-        except:
-            input_year = 12
-        output = int(input_year)
-        return render_template("predict.html", pred=output)
-#             return render_template("predict.html", pred="Invalid Value")
-#     return render_template('predict.html')
+    return render_template("predict.html")
+# #     if request.method == 'POST':
+#         try:
+#             input_year = request.form.get('Time')
+#         except:
+#             input_year = 12
+#         output = int(input_year)
+#         return render_template("predict.html", pred=output)
+# #             return render_template("predict.html", pred="Invalid Value")
+# #     return render_template('predict.html')
 
-# @app.route('/predictdata')
-# def predictdata():
+# # @app.route('/predictdata')
+# # def predictdata():
     
-#     return()
+# #     return()
 
 
 

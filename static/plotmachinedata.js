@@ -1,4 +1,5 @@
-function addPlot() {
+function addDataPointsAndRender() {
+    xValue = Number(document.getElementById('xValue').value);
 //     var formInfo = document.getElementById("uniqueID").value;
    // Get the data with d3.
     d3.json('/predictdata').then(function(data) {
@@ -45,3 +46,6 @@ function addPlot() {
     
     });
 };
+
+var renderButton = document.getElementById('renderButton');
+renderButton.addEventListener('click', addDataPointsAndRender);
