@@ -216,11 +216,11 @@ def about():
 def predict(): 
     if request.method == 'POST':
         try:
-            user_input = request.form['Time']
-            user_input = int(user_input)
-            return pred=str(user_input)
+            input_year = request.form.get('yearInputName')
+            input_year = int(input_year)
+            return render_template("index.html", pred=input_year)
         except:
-            return pred="Invalid Value"
+            return render_template("index.html", pred="Invalid Value")
 #     return render_template('predict.html')
 
 # @app.route('/predictdata')
