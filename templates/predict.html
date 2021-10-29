@@ -120,8 +120,8 @@
 <!--       Content -->
       <div class='container'>
           <div class="row" style="text-align:center; padding-top:50px;">
-              <p style="font-size: 25px;"> "Fine particulate matter (PM2.5) is an air pollutant that is a concern for people's health when levels in air are high. PM2.5 are tiny particles in the air that reduce visibility and cause the air to appear hazy when levels are elevated. Outdoor PM2.5 levels are most likely to be elevated on days with little or no wind or air mixing."</p>
-              <p style="font-size: 25px; text-align:right;"><b>—New York State Health Department</b></p>
+              <p style="font-size: 25px;"> "For fine particulate matter (PM2.5), short-term exposures (up to 24-hours duration) have been associated with premature mortality, increased hospital admissions for heart or lung causes, acute and chronic bronchitis, asthma attacks, emergency room visits, respiratory symptoms, and restricted activity days."</p>
+              <p style="font-size: 25px; text-align:right;"><b>—California Air Resources Board</b></p>
           </div>
       </div>
       
@@ -132,14 +132,14 @@
                 <div class='col-md-12' style="text-align:center; padding:50px;">
                     <p style="font-size: 20px;">Use our machine learning model to predict future mean PM2.5 (µg/m3) pollution concentrations in Beijing, China. <br><br> This model is based on time series models trained on data gathered from 12 different Beijing districts during the period of 1/3/2013 to 12/31/2016. As such, predicted PM2.5 values are based on integer time steps from the final date included in the model. To plot predicted data for a time period, please enter a positive integer value corresponding to the number of days from 12/31/2016. <br><br>Ex: &nbsp; An input of '365' yields an estimated mean PM2.5 concentration on the day 12/31/2017.</p> <br>
 <!--                     <form method = "POST"> -->
-                        <p>Days: &nbsp;<input id="xValue" type="number" step="any" placeholder="Enter Time Steps">
+                        <p>Days: &nbsp;<input id="xValue" type="number" step="any" placeholder="'10'">
                         <button id="renderButton">Enter</button>
 <!--                         <p>Prediction = {{ pred }}</p> -->
 <!--                     </form> -->
                 </div>
           </div>
                 
-                <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-right:0px; padding-left:0px;">
+                <div class="row" style="margin-bottom:0px; margin-top:0px; background-color: #f8f9fa; padding-right:80px; padding-left:80px;">
                   <div id ="predictions_plot"></div>
                   </div>
 <!--           </div> -->
@@ -147,12 +147,12 @@
                     <div class="row" style="margin-bottom:0px; margin-top:60px; background-color: #f8f9fa; padding-right:150px; padding-left:150px;">
                 <div class='col-md-12' style="text-align:left; padding:50px;">
                     <h3 style="font-weight:bold; text-align:left; padding-top:50px;">What Is Machine Learning?</h3><br>
-                    <p style="font-size: 20px;">Machine Learning algorithms are functions with internal parameters that apply labels to data points. These algorithms use training data to set their internal parameters (this is the “learning” of Machine Learning). After feeding known data points outside of the training data (test data), the accuracy of the Machine Learning algorithm can be ascertained and improved upon through various optimization techniques. This allows you to make predictions about your target variable based on the values of the parameters from which your model is trained on. </p> <br>
+                    <p style="font-size: 20px;">Machine learning algorithms are functions with internal parameters that apply labels to data points. These algorithms use training data to set their internal parameters &ndash; this is the “learning” of machine learning. After feeding known data points outside of the training data (test data), the accuracy of the Machine Learning algorithm can be ascertained and improved upon through various optimization techniques. This allows you to make predictions about your target variable based on the values of the parameters from which your model is trained on. </p> <br>
                     <h3 style="font-weight:bold; text-align:left; padding-top:50px;">How Is Machine Learning Used In This Tool?</h3><br>
                     <p style="font-size: 20px;">This tool draws on the “Beijing Multi-Site Air-Quality Data” on the University of California Irvine's Machine Learning Repository and feeds several time-series algorithms, one for each feature in our dataset, into our final model. Ultimately, our final machine learning algorithm can deduce the expected mean concentration of PM2.5 at the requested time, within 3 years, determined by the user.
 </p> <br>
                     <h3 style="font-weight:bold; text-align:left; padding-top:50px;">Why Is This Important?</h3><br>
-                    <p style="font-size: 20px;">This model is limited in its current form by the scope of the dataset &ndash; PM2.5 concentrations in Beijing districts for a particular time frame. Similar data collection is likely being conducted by climate scientists in many places around the world. This means that, with the right amount of available data, local forecasts for PM2.5 concentrations could be created using this same methodology. Additionally, different variables specific to these locations can be included that might correlate to changes in PM2.5, such as lax or strict environmental policies. This would provide potentially life-saving insight into climate policy.
+                    <p style="font-size: 20px;">Via the New York State Department of Health, particles in the PM2.5 size range (two and one half microns or less in width) are able to travel deeply into the respiratory tract, reaching the lungs. Exposure to fine particles can cause short-term health effects such as eye, nose, throat and lung irritation, coughing, sneezing, runny nose and shortness of breath. Exposure to fine particles can also affect lung function and worsen medical conditions such as asthma and heart disease. Scientific studies have linked increases in daily PM2.5 exposure with increased respiratory and cardiovascular hospital admissions, emergency department visits and deaths. <br><br> This model is limited in its current form by the scope of the dataset &ndash; PM2.5 concentrations in Beijing districts for a particular time frame. Similar data collection is likely being conducted by climate scientists in many places around the world. This means that, with the right amount of available data, local forecasts for PM2.5 concentrations could be created using this same methodology. Additionally, different variables specific to these locations can be included that might correlate to changes in PM2.5, such as lax or strict environmental policies. This would provide potentially life-saving insight into climate policy.
 
 </p> <br>
                 </div>
