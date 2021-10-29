@@ -6,8 +6,8 @@ function addDataPointsAndRender() {
 
         var config = {responsive: true};
         
-        var date_2016_trace = [data[2]];
-        var pm25_2016_trace = [data[3]];
+        var date_2016_trace = [];
+        var pm25_2016_trace = [];
         
         var date_trace = [];
         var pm25_trace = [];
@@ -15,6 +15,11 @@ function addDataPointsAndRender() {
         for (var i = 0; i <= xValue; i++) { 
             date_trace.push(data[0][i])
             pm25_trace.push(data[1][i])
+        };
+        
+        for (var i = 0; i <= data[2].length; i++) { 
+            date_2016_trace.push(data[2][i])
+            pm25_2016_trace.push(data[3][i])
         };
 
     var config = {responsive: true}
