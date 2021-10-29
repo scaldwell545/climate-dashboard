@@ -14,7 +14,10 @@ d3.json('/co2_year').then(function(data) {
           opacity: 0.6,
           marker: {
             color: '#4a934a'
-            }
+            },
+          line : {
+              width: 3
+          }
       }
     ];
     
