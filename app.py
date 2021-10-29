@@ -181,25 +181,25 @@ co2_year_avg_features = [year_array, co2_avg_array]
 ############### Get prediction data ####################
 
 predictions_path = os.path.join(os.getcwd(), 'Resources', 'predictions.csv')
-df_2015_path = os.path.join(os.getcwd(), 'Resources', 'df_2015.csv')
+df_2016_path = os.path.join(os.getcwd(), 'Resources', 'df_2016.csv')
 predictions_df = pd.read_csv(predictions_path)
-df_2015 = pd.read_csv(df_2015_path)
+df_2016 = pd.read_csv(df_2016_path)
 
 datetime_array = []
 pm25_array = []
 
-time2015array = []
-pm25_2015_array = []
+time2016array = []
+pm25_2016_array = []
 
 for index, row in predictions_df.iterrows():
     datetime_array.append(row[1])
     pm25_array.append(row[2])
     
-for index, row in df_2015.iterrows():
-    time2015array.append(row[1])
-    pm25_2015_array.append(row[2])
+for index, row in df_2016.iterrows():
+    time2016array.append(row[1])
+    pm25_2016_array.append(row[2])
 
-prediction_graph_features = [datetime_array, pm25_array, time2015array, pm25_2015_array]
+prediction_graph_features = [datetime_array, pm25_array, time2016array, pm25_2016_array]
 
 
 
