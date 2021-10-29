@@ -10,6 +10,9 @@ function addDataPointsAndRender() {
 
         var date_trace = data[0]
         var pm25_trace = data[1]
+        
+        var date_2015_trace = data[2]
+        var pm25_2015_trace = data[3]
 
     var config = {responsive: true}
     
@@ -21,6 +24,14 @@ function addDataPointsAndRender() {
           opacity: 0.6,
           marker: {
             color: '#4a934a'
+            }
+      }, {
+      x: date_2015_trace,
+      y: pm25_2015_trace,
+      type: 'line',
+          opacity: 0.6,
+          marker: {
+            color: '#1F3F49'
             }
       }
     ];
