@@ -44,7 +44,7 @@ function addDataPointsAndRender() {
         y: pm25_2016_trace,
         name: 'Observed',
         type: 'line',
-        opacity: 1,
+        opacity: 0.3,
         marker: {
             color: '#1F3F49'
         },
