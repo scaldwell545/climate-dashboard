@@ -4,18 +4,18 @@ function addDataPointsAndRender() {
     // Get the data with d3.
     d3.json('/predictdata').then(function(data) {
 
-        var config = {responsive: true}
-
-        var date_trace = []
-        var pm25_trace = []
+        var config = {responsive: true};
         
-        var date_2015_trace = [data[2]]
-        var pm25_2015_trace = [data[3]]
+        var date_2016_trace = [data[2]];
+        var pm25_2016_trace = [data[3]];
+        
+        var date_trace = [];
+        var pm25_trace = [];
         
         for (var i = 0; i <= xValue; i++) { 
             date_trace.push(data[0][i])
             pm25_trace.push(data[1][i])
-        }
+        };
 
     var config = {responsive: true}
     
@@ -29,8 +29,8 @@ function addDataPointsAndRender() {
             color: '#4a934a'
             }
       }, {
-      x: date_2015_trace,
-      y: pm25_2015_trace,
+      x: date_2016_trace,
+      y: pm25_2016_trace,
       type: 'line',
           opacity: 0.6,
           marker: {
