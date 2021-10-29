@@ -1,18 +1,21 @@
 function addDataPointsAndRender() {
     xValue = Number(document.getElementById('xValue').value);
-//     var formInfo = document.getElementById("uniqueID").value;
-   // Get the data with d3.
+
+    // Get the data with d3.
     d3.json('/predictdata').then(function(data) {
-//         console.log(formInfo);
-        console.log(data);
-        
+
         var config = {responsive: true}
 
-        var date_trace = data[0]
-        var pm25_trace = data[1]
+        var date_trace = []
+        var pm25_trace = []
         
-        var date_2015_trace = data[2]
-        var pm25_2015_trace = data[3]
+        var date_2015_trace = [data[2]]
+        var pm25_2015_trace = [data[3]]
+        
+        for (var i = 0; i <= xValue; i++) { 
+            date_trace.push(data[0][i])
+            pm25_trace.push(data[1][i])
+        }
 
     var config = {responsive: true}
     
