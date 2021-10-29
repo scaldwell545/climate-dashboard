@@ -28,7 +28,8 @@ function addDataPointsAndRender() {
       {
         x: date_trace,
         y: pm25_trace,
-        type: 'line',
+          name: 'Predicted',
+        type: 'lines+markers',
           opacity: 0.6,
           marker: {
             color: '#4a934a'
@@ -36,6 +37,7 @@ function addDataPointsAndRender() {
       }, {
       x: date_2016_trace,
       y: pm25_2016_trace,
+          name: 'Observed',
       type: 'line',
           opacity: 0.6,
           marker: {
