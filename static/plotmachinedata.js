@@ -56,7 +56,7 @@ function addDataPointsAndRender() {
     
     
     var layout = {
-      title: 'Predicted PM2.5 Concentrations',
+      title: 'Predicted Mean PM2.5 Concentrations',
       yaxis: {
           title: {
               text: 'PM2.5 (µg/m3)'
