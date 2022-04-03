@@ -50,8 +50,7 @@ function addDataPointsAndRender() {
         },
         line: {
               width: 3
-        },
-        trendline="ols"
+        }
         }
     ];
     
@@ -67,7 +66,8 @@ function addDataPointsAndRender() {
         paper_bgcolor:"#f8f9fa",
         autosize: true, 
         height:550,
-        bargap:0.05
+        bargap:0.05,
+        trendline="ols"
       }
     
     
