@@ -50,7 +50,8 @@ function addDataPointsAndRender() {
         },
         line: {
               width: 3
-          }
+        },
+        trendline="ols"
         }
     ];
     
