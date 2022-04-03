@@ -66,9 +66,8 @@ function addDataPointsAndRender() {
         paper_bgcolor:"#f8f9fa",
         autosize: true, 
         height:550,
-        bargap:0.05,
-        trendline="ols"
-      }
+        bargap:0.05
+    }
     
     
 
