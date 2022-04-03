@@ -35,19 +35,19 @@
 
 /* Styles for the specific images. */
 .first-image {
-	background-image: url('https://photographylife.com/wp-content/uploads/2014/02/Sunset-Sunflower.jpg');	
+	background-image: url('https://raw.githubusercontent.com/scaldwell545/climate-dashboard/main/Resources/pics/Sunset-Sunflower.jpg');	
 	z-index: -3;
 	opacity: 0;
 }
 
 .second-image {
-	background-image: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701341921.jpg');
+	background-image: url('https://raw.githubusercontent.com/scaldwell545/climate-dashboard/main/Resources/pics/High_resolution_wallpaper_background_ID_77701341921.jpg');
 	z-index: -2;
 	opacity: 0;
 }
 
 .third-image {
-	background-image: url('https://s169923.gridserver.com/images/winterbarrel.jpg');
+	background-image: url('https://raw.githubusercontent.com/scaldwell545/climate-dashboard/main/Resources/pics/ice-nature-winter-sea-wallpaper.jpg');
 	z-index: -1;
 	opacity: 0;
 }
